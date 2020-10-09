@@ -69,7 +69,7 @@ def main(args):
     output_path = os.path.join(args.output_folder, os.path.basename(video_file).replace('.mp4', ''))
     os.makedirs(output_path, exist_ok=True)
 
-    image_folder, num_frames, img_shape = video_to_images(video_file, return_info=True)
+    image_folder, num_frames, img_shape = video_to_images(video_file, img_folder=os.path.join(output_path, 'images'), return_info=True)
 
     print(f'Input video number of frames {num_frames}')
     orig_height, orig_width = img_shape[:2]
@@ -338,7 +338,7 @@ def main(args):
         images_to_video(img_folder=output_img_folder, output_vid_file=save_name)
         shutil.rmtree(output_img_folder)
 
-    shutil.rmtree(image_folder)
+    #shutil.rmtree(image_folder)
     print('================= END =================')
 
 
