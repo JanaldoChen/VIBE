@@ -188,6 +188,7 @@ def video_to_images(vid_file, img_folder=None, return_info=False):
 
     command = ['ffmpeg',
                '-i', vid_file,
+               '-r', '1',
                '-f', 'image2',
                '-v', 'error',
                f'{img_folder}/%06d.png']
